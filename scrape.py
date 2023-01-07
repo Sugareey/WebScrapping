@@ -7,7 +7,7 @@ SOURCE = requests.get(DATA_URL).text
 
 soup = BeautifulSoup(SOURCE, 'lxml')
 
-for article in soup.find_all('article'):
+for article in soup.find_all('article', class_='post'):
     headline = article.h2.a.text
     post_preview_text = article.div.div.text
     post_link = article.find('a', class_='post__title_link').get('href')
